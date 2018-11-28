@@ -62,3 +62,18 @@ let renderOption = () => {
 };
 
 $(() => Pictures.readJson());
+
+$('select').on('change', function() {
+  $('div').hide();
+  let keywordSelector = $('select').val();
+  console.log(keywordSelector);
+  Pictures.allPictures.forEach( element => {
+    if (element.keyword === keywordSelector ){
+      console.log('works');
+      element.render();
+    }
+    if (keywordSelector === 'default'){
+      element.render();
+    }
+  })
+})
