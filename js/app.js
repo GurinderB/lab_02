@@ -1,9 +1,12 @@
+//Display Images
+let allKeyword = [];
 function Pictures(picture) {
   this.image_url = picture.image_url;
   this.title = picture.title;
   this.description = picture.description;
   this.keyword = picture.keyword;
   this.horns = picture.horns;
+  allKeyword.push(picture.keyword);
 }
 
 Pictures.allPictures = [];
@@ -21,8 +24,9 @@ Pictures.prototype.render = function() {
 
   pictureClone.removeClass('clone');
   pictureClone.attr('class', this.keyword);
-  pictureClone.attr('class', this.horns)
-  console.log('render is running')
+//   console.log(this.keyword);
+//   pictureClone.attr('class', this.horns)
+
 };
 
 Pictures.readJson = () => {
@@ -33,15 +37,28 @@ Pictures.readJson = () => {
       });
     })
     .then(Pictures.loadPictures);
-  console.log('readJSON is running');
 };
 
 Pictures.loadPictures = () => {
   Pictures.allPictures.forEach(picture => {
     picture.render();
-    console.log('test')
+    renderOption();
   });
-  console.log('loadPictures is running')
+};
+
+
+//Create DropDown
+let renderOption = () => {
+  allKeyword.forEach( element => {
+    $('select').append('<option class="optClone"></option>');
+    console.log(element);
+    let optionClone = $('option[class="optClone"]')
+    let optionHtml = $('#option-template');
+    optionClone.html(optionHtml);
+    optionClone.text(element);
+    optionClone.removeClass('optClone');
+    optionClone;
+  })
 };
 
 $(() => Pictures.readJson());
