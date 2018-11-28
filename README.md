@@ -11,6 +11,7 @@ Estimate of time needed to complete: 30 minutes
 
 Start time: 9:15
 
-Finish time: _____
+Finish time: 9:46
 
-Actual time needed to complete: _____
+Actual time needed to complete: 31 minutes (plus a few to get it pushed to git hub)
+
