@@ -1,0 +1,15 @@
+img {
+    width: 200px;
+}
+
+div {
+    float: left;
+    width: 200px;
+    height: 350px;
+    margin: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+}
