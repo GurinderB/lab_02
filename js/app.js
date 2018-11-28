@@ -11,7 +11,7 @@ function Pictures(picture) {
 
 Pictures.allPictures = [];
 
-Pictures.prototype.render = function() {
+Pictures.prototype.render = function () {
   //render the pictures
   $('main').append('<div class="clone"></div>');
   let pictureClone = $('div[class="clone"]');
@@ -24,8 +24,8 @@ Pictures.prototype.render = function() {
 
   pictureClone.removeClass('clone');
   pictureClone.attr('class', this.keyword);
-//   console.log(this.keyword);
-//   pictureClone.attr('class', this.horns)
+  //   console.log(this.keyword);
+  //   pictureClone.attr('class', this.horns)
 
 };
 
@@ -49,7 +49,7 @@ Pictures.loadPictures = () => {
 
 //Create DropDown
 let renderOption = () => {
-  allKeyword.forEach( element => {
+  allKeyword.forEach(element => {
     $('select').append('<option class="optClone"></option>');
     console.log(element);
     let optionClone = $('option[class="optClone"]')
@@ -63,16 +63,16 @@ let renderOption = () => {
 
 $(() => Pictures.readJson());
 
-$('select').on('change', function() {
+$('select').on('change', function () {
   $('div').hide();
   let keywordSelector = $('select').val();
   console.log(keywordSelector);
-  Pictures.allPictures.forEach( element => {
-    if (element.keyword === keywordSelector ){
+  Pictures.allPictures.forEach(element => {
+    if (element.keyword === keywordSelector) {
       console.log('works');
       element.render();
     }
-    if (keywordSelector === 'default'){
+    if (keywordSelector === 'default') {
       element.render();
     }
   })
